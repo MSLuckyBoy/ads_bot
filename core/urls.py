@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from tgbot.views import handle_webhook_requests
+
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(settings.WEBHOOK_URL_PATH, handle_webhook_requests, name="bot")
 ]

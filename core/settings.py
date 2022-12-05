@@ -30,7 +30,13 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = []
+#IP or Domain
+WEBHOOK_URL_HOST = env.str("WEBHOOK_URL_HOST")
+
+#Any url path
+WEBHOOK_URL_PATH = env.str("WEBHOOK_URL_PATH")
+
+ALLOWED_HOSTS = [WEBHOOK_URL_HOST, '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -127,3 +133,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Telegram bot token
+BOT_TOKEN = env.str("BOT_TOKEN")
