@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 
 import telebot
-from .telegram_bot.main import bot
+from .main import bot
 
 
 @csrf_exempt
