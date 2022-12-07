@@ -60,10 +60,11 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+*.rdb
 **/migrations/**
 **/__pycache__/**
 media
-static
+
 
 # Flask stuff:
 instance/
