@@ -1,0 +1,31 @@
+{% extends 'tgbot/base_webapp.html' %}
+
+{% load static %}
+
+{% block title %}
+Qwertyu page
+{% endblock %}
+
+{% block content %}
+<div class="container">    
+    <div class="row gx-1 gy-1">
+        {% for post in posts %}
+        <div class="col-6">
+            <div class="card">
+                {% if post.image %}
+                <img src="{{ post.image.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}">
+                {% else %}
+                <img src="{% static 'img/default_image.jpg' %}" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body p-2">
+                    <p class="card-text lh-1" style="font-size: 12px"><b>{{ post.title }}</b></p>
+                    <!-- <p class="card-text fs-6">{{ post.description }}</p> -->
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    <small class="text-muted">{{ post.time_create }}</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

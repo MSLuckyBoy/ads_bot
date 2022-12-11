@@ -1,4 +1,8 @@
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+from telebot.types import ReplyKeyboardMarkup, KeyboardButton
+from telebot.types import WebAppInfo
+
+from django.conf import settings
 
 
 def set_lang(_):
@@ -31,19 +35,13 @@ def set_region(_):
 
 
 def menu(_):
+	web_app = WebAppInfo(f"https://{settings.WEBHOOK_URL_HOST}")
 	markup = ReplyKeyboardMarkup(resize_keyboard=True)
 	markup.add(
 		KeyboardButton(_("add_new_ad_keyboard"))
 	)
 	markup.add(
-		KeyboardButton(_("see_ads_keyboard")),
+		KeyboardButton(_("see_ads_keyboard"), web_app=web_app),
 		KeyboardButton(_("personal_cabinet_keyboard"))
 	)
 	return markup
-
-
-
-
-
-
-
